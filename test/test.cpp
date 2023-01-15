@@ -55,7 +55,7 @@ namespace all_tests
 			Assert::AreEqual(4, list_nth_element(c, 4));
 			Assert::AreEqual(8, list_nth_element(c, 8));
 		}
-
+		
 		TEST_METHOD(list_sort_descending)
 		{
 			std::list<int> c{ 7, 1, 5, 3, 4, 2 };
@@ -63,7 +63,7 @@ namespace all_tests
 			Assert::AreEqual(6ull, c.size());
 			Assert::IsTrue(std::is_sorted(c.rbegin(), c.rend()));
 		}
-
+		
 		TEST_METHOD(unique_values_test)
 		{
 			std::stringstream ss1("-9 -7 -5 -3 -1");
@@ -73,10 +73,10 @@ namespace all_tests
 			std::stringstream ss3("0 1 1 0 0 1 0");
 			Assert::AreEqual(2u, unique_numbers(ss3));
 		}
-
+		
 		TEST_METHOD(word_frequency_test)
 		{
-			std::stringstream ss("Lorem ipsum dolor sit amet lorem ipsum dolor");
+			std::stringstream ss("lorem ipsum dolor sit amet lorem ipsum dolor");
 			word_frequency h(ss);
 			Assert::AreEqual(5u, h.count());
 			Assert::AreEqual(2u, h.frequency("lorem"));
