@@ -22,9 +22,9 @@ namespace vsite::oop::v9
 
 	class word_frequency {
 		std::map<std::string, uint32_t> m;
+		void insert(const std::string& str);
 	public:
 		word_frequency(std::istream& ss);
-		void insert(const std::string& str);
 		uint32_t count()const;
 		uint32_t frequency(std::string str)const;
 	};

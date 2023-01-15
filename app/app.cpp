@@ -25,8 +25,7 @@ namespace vsite::oop::v9
 	}
 
 	void list_sort_desc(std::list<int>& l) {
-		l.sort();
-		l.reverse();
+		l.sort(std::greater<int>());
 	}
 
 	uint32_t unique_numbers(std::istream& ss) {
@@ -57,6 +56,7 @@ namespace vsite::oop::v9
 	}
 
 	uint32_t word_frequency::frequency(std::string str)const {
-		return m.contains(str) ? m.at(str) : 0;
+		auto it = m.find(str);
+		return it != m.end() ? it->second : 0;
 	}
 }
