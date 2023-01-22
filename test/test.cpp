@@ -73,7 +73,7 @@ namespace all_tests
 			std::stringstream ss3("0 1 1 0 0 1 0");
 			Assert::AreEqual(2u, unique_numbers(ss3));
 		}
-
+		
 		TEST_METHOD(word_frequency_test)
 		{
 			std::stringstream ss("Lorem ipsum dolor sit amet lorem ipsum dolor");
