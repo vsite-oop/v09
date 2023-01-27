@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <list>
+#include <map>
 
 namespace vsite::oop::v9 
 {
@@ -19,10 +20,11 @@ namespace vsite::oop::v9
 	unsigned unique_numbers(std::istream&);
 
 
-	class word_frequency {  // TODO
+	class word_frequency {
+		std::map<std::string, unsigned> word_map;
 	public:
 		word_frequency(std::istream&);
-		unsigned count();
-		unsigned frequency(std::string);
+		unsigned count() const;
+		unsigned frequency(const std::string&) const;
 	};;
 }

@@ -51,15 +51,27 @@ namespace vsite::oop::v9
 	}
 
 
+	//***class word_frequency***//
 	word_frequency::word_frequency(std::istream& is) {
-		// TODO
+		std::string word;
+		while (is >> word) {
+			word[0] = tolower(word[0]);
+			word_map[word]++;
+		}
 	}
 
-	unsigned word_frequency::count() {
-		// TODO
+	unsigned word_frequency::count() const {
+		/*Returns number of words in a map.*/
+		return word_map.size();
 	}
 
-	unsigned word_frequency::frequency(std::string input) {
-		// TODO
+	unsigned word_frequency::frequency(const std::string& word) const {
+		auto it = word_map.find(word);
+		if (it == word_map.end()) {
+			return 0;
+		}
+		else {
+			return it->second;
+		}
 	}
 }
