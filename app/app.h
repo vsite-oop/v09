@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <list>
-#include<map>
+#include <map>
 
 #include<string>
 
@@ -24,11 +24,13 @@ namespace vsite::oop::v9
 
 	class word_frequency {
 	private:
-		std::map<std::string, unsigned int> m;
+		std::map<std::string, unsigned int> map;
 	public:
 		word_frequency(std::istream& is);
 
 		unsigned int count() const;
-		unsigned int frequency(const std::string& s);
+		unsigned int frequency(const std::string& s) const;
+
+		
 	};
 }
