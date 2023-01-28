@@ -49,11 +49,7 @@ namespace vsite::oop::v9
 
             if (std::string("!.?,:").find(word.back()) != -1)
                 word.pop_back();
-            if (mWordFrequency.count(word) == 0)
-                mWordFrequency[word] = 1;
-            else {
-                ++mWordFrequency[word];
-            }
+            ++mWordFrequency[word];
         }
     }
 
