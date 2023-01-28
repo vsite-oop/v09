@@ -5,7 +5,7 @@
 #include <algorithm> // is_sorted
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-//using namespace std::string_literals;
+using namespace std::string_literals;
 using namespace vsite::oop::v9;
 
 namespace all_tests
