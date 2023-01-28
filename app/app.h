@@ -10,7 +10,7 @@ namespace vsite::oop::v9
 {
 	void fill_vector(std::vector<int>& v, int i);
 
-	void remove_element(std::vector<int>& v, int i);
+	void remove_element(std::vector<int>& v, int ep);
 
 	void input_element(std::vector<std::string>& v, int p, const std::string val);
 
@@ -29,6 +29,6 @@ namespace vsite::oop::v9
 		word_frequency(std::istream& is);
 
 		unsigned int count() const;
-		unsigned int frequency(std::string s) const;
+		unsigned int frequency(const std::string& s);
 	};
 }
