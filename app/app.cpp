@@ -1,5 +1,4 @@
 #include "app.h"
-#include <algorithm>
 #include <unordered_set>
 #include <set>
 
@@ -25,7 +24,8 @@ namespace vsite::oop::v9
 		if (l.size() > pos)
 		{
 			std::list<int>::iterator it = l.begin();
-			std::advance(it, pos);
+			for (int i = 0; i < pos; ++i)
+				++it;
 			return *it;
 		}
 	}

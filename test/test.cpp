@@ -2,7 +2,7 @@
 #include "../app/app.h"
 
 #include <sstream>
-#include <algorithm> // is_sorted
+#include <algorithm>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std::string_literals;
