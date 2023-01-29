@@ -56,8 +56,9 @@ namespace vsite::oop::v9
 	unsigned int word_frequency::count() const { return map.size(); }
 
 	unsigned int word_frequency::frequency(const std::string& s) const {
-		if (map.contains(s))
-			return map.at(s);
+		auto it = map.find(s);
+		if (it != map.end())
+			return it->second;
 		return 0;
 
 	}
