@@ -30,8 +30,7 @@ namespace vsite::oop::v9
 	}
 
 	void list_sort_desc(std::list<int>& l) {
-		l.sort();
-		l.reverse();
+		l.sort(std::greater());
 	}
 
 	unsigned int unique_numbers(std::istream& is) {
