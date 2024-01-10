@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include <list>
+#include <unordered_set>
+#include <unordered_map>
 namespace vsite::oop::v9 
 {
 	void fill_vector(std::vector<int>& v, int broj);
@@ -9,12 +11,13 @@ namespace vsite::oop::v9
 	void input_element(std::vector<std::string>& v, int pos, std::string s);
 	int list_nth_element(std::list<int>& v, int pos);
 	void list_sort_desc(std::list<int>& v);
-	unsigned unique_numbers(std::stringstream& s);
+	unsigned unique_numbers(std::istream& s);
 	class word_frequency {
-		std::stringstream& s1;
+	private:
+		std::unordered_map<std::string,int> words;
 	public:
-		word_frequency(std::stringstream& s) : s1(s) {};
+		word_frequency(std::istream& s);
 		unsigned count();
-		unsigned frequency(std::string s);
+		unsigned frequency(const std::string& s);
 	};
 }

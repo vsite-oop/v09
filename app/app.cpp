@@ -2,6 +2,7 @@
 #include <list>
 #include <sstream>
 #include <unordered_map>
+
 namespace vsite::oop::v9
 {
 	void fill_vector(std::vector<int>& v, int broj)
@@ -29,48 +30,36 @@ namespace vsite::oop::v9
 	{
 		v.sort(std::greater<int>());
 	}
-	unsigned unique_numbers(std::stringstream& s)
+	unsigned unique_numbers(std::istream& s)
 	{
-		std::unordered_map<int, int> m;
+		std::unordered_set<int> brojevi;
 		int value;
-		int unique = 0;
 		while (s >> value)
 		{
-			m[value]++;
+			brojevi.insert(value);
 
 		}
-		return m.size();
+		return brojevi.size();
 	}
-	
-	unsigned word_frequency::count() {
-		std::stringstream copy(s1.str());
-		std::unordered_map<std::string, int> m;
-		std::string value;
-		while (copy >> value)
-		{
-			for (char& c : value)
-			{
-				c = std::tolower(c);
-			}
-			m[value]++;
-
-		}
-		return m.size();
-	}
-	unsigned word_frequency::frequency(std::string s)
+	word_frequency::word_frequency(std::istream& s)
 	{
-		std::stringstream copy(s1.str());
-		std::unordered_map<std::string, int> m;
 		std::string value;
-		while (copy >> value)
+		while (s >> value)
 		{
 			for (char& c : value)
 			{
 				c = std::tolower(c);
 			}
-			m[value]++;
-		} 
-		return m[s];
+			words[value]++;
+		}
+	}
+	unsigned word_frequency::count() {
+		return words.size();
+	}
+	unsigned word_frequency::frequency(const std::string& s)
+	{
+		auto it = words.find(s);
+		return (it != words.end()) ? it->second : 0;
 	}
 
 }
