@@ -14,10 +14,11 @@ namespace vsite::oop::v9
 	void input_element(std::vector<std::string>& v, int n,const std::string& c);
 	int list_nth_element(std::list<int>& c, int n);
 	void list_sort_desc(std::list<int>& c);
-	unsigned unique_numbers(std::stringstream& ss);
+	unsigned unique_numbers(std::istream& ss);
 	class word_frequency {
 	public:
-		word_frequency(std::stringstream& ss);
+		std::unordered_map<std::string, unsigned> wordCounts;
+		word_frequency(std::istream& ss);
 		unsigned count() const;
 		unsigned frequency(const std::string& word) const;
 	};

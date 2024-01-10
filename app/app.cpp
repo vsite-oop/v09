@@ -23,16 +23,10 @@ namespace vsite::oop::v9
 	}
 
 	void list_sort_desc(std::list<int>& c) {
-		for (auto it1 = std::begin(c); it1 != std::end(c); ++it1) {
-			for (auto it2 = std::next(it1); it2 != std::end(c); ++it2) {
-				if (*it1 < *it2) {
-					std::swap(*it1, *it2);
-				}
-			}
-		}
+		c.sort(std::greater<int>());
 	}
 
-	unsigned unique_numbers(std::stringstream& ss) {
+	unsigned unique_numbers(std::istream& ss) {
 		std::unordered_set<unsigned> uniqueValues;
 		unsigned number;
 
@@ -40,11 +34,10 @@ namespace vsite::oop::v9
 			uniqueValues.insert(number);
 		}
 
-		return static_cast<unsigned>(uniqueValues.size());
+		return uniqueValues.size();
 	}
 
-	std::unordered_map<std::string, unsigned> wordCounts;
-	word_frequency::word_frequency(std::stringstream& ss) {
+	word_frequency::word_frequency(std::istream& ss) {
 		std::string word;
 		while (ss >> word) {
 			std::transform(word.begin(), word.end(), word.begin(), ::tolower);
@@ -56,7 +49,7 @@ namespace vsite::oop::v9
 		
 
 	unsigned word_frequency::count() const {
-		return static_cast<unsigned>(wordCounts.size());
+		return wordCounts.size();
 	}
 
 	unsigned word_frequency::frequency(const std::string& word) const {
