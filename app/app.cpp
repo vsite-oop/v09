@@ -4,37 +4,20 @@ namespace vsite::oop::v9
 {
     void fill_vector(std::vector<int>& v, size_t n)
     {
-        size_t size = v.size() + n; 
-
-        while (v.size() < size)
+        for (int i = 0; i < n; ++i)
         {
-            int num = v.size() % 10;
-
-            v.push_back(num * num);
+            v.push_back(i * i);
         }
     }
 
     void remove_element(std::vector<int>& v, size_t n)
     {
-        for (size_t i = n; i < v.size() - 1; ++i)
-        {
-            v[i] = v[i + 1];
-        }
-        v.pop_back();
+        v.erase(v.begin() + n);
     }
 
     void input_element(std::vector<std::string>& v, size_t n, std::string s)
-    {
-        if (v.capacity() < v.size() + 1) {
-            v.push_back("");
-        }
-
-        for (size_t i = n; i < v.size() - 1; ++i)
-        {
-            v[i+1] = v[i];
-        }
-
-        v[n] = s;
+    {        
+        v.insert(v.begin() + n, s);
     }
 
     int list_nth_element(std::list<int>& l, size_t n)
@@ -50,13 +33,7 @@ namespace vsite::oop::v9
 
     void list_sort_desc(std::list<int>& l)
     {
-        for (auto it = l.begin(); it != l.end(); it++) {
-            for (auto it2 = it; it2 != l.end(); it2++) {
-                if (*it < *it2) {
-                    std::swap(*it, *it2);
-                }
-            }
-        }
+        l.sort(std::greater<int>());
     }
     
     unsigned int unique_numbers(std::istream& is)
@@ -72,18 +49,16 @@ namespace vsite::oop::v9
     }
 
 
-    std::map<std::string, unsigned int> word_frequency::fill_dict(std::istream& is)
+    word_frequency::word_frequency(std::istream& is)
     {
-        std::map<std::string, unsigned int> dict;
         std::string word;
 
         while (is >> word) {
             for (auto& c : word) {
                 c = tolower(c);
             }
-            dict[word]++;
+            _dict[word]++;
         }
-        return dict;
     }
 
     unsigned int word_frequency::count() const
@@ -93,13 +68,7 @@ namespace vsite::oop::v9
 
     unsigned int word_frequency::frequency(const std::string& word) const
     {
-        try
-        {
-            return _dict.at(word);
-        }
-        catch (const std::exception&)
-        {
-            return 0;
-        }
+        auto it = _dict.find(word);
+        return it != _dict.end() ? it->second : 0;
     }
 }

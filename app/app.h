@@ -22,9 +22,7 @@ namespace vsite::oop::v9
         std::map<std::string, unsigned int> _dict;
 
     public:
-        word_frequency(std::istream& is) : _dict(fill_dict(is)) { }
-
-        std::map<std::string, unsigned int> fill_dict(std::istream& is);
+        word_frequency(std::istream& is);
 
         unsigned int count() const;
         unsigned int frequency(const std::string& word) const;
