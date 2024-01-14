@@ -14,7 +14,7 @@ namespace vsite::oop::v9
     int list_nth_element(std::list<int>& l, size_t n);
     void list_sort_desc(std::list<int>& l);
     unsigned int unique_numbers(std::istream& is);
-    void toLowerCase(std::string& s);
+   
 
     class word_frequency
     {
