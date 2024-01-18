@@ -17,7 +17,7 @@ namespace vsite::oop::v9
 
 	}
 
-	void input_element(std::vector<std::string>& v, int  pos, std::string el) {
+	void input_element(std::vector<std::string>& v, int  pos, const std::string el) {
 		v.insert(v.begin() + pos, el);
 
 	}
@@ -34,36 +34,43 @@ namespace vsite::oop::v9
 
 
 	void list_sort_desc(std::list<int>& l) {
-		l.sort(); l.reverse();
+		l.sort(std::greater<int>());
+	}
+	unsigned int unique_numbers(std::istream & ss) {
+			std::set<int> s{};
+			int a;
+			while (ss >> a) {
+				s.insert(a);
+			}
+			return s.size();
 	}
 
-	unsigned int unique_numbers(std::stringstream& ss) {
-		std::set<int> s{};
-		int a;
-		while (ss >> a) {
-			s.insert(a);
-		}
-		return s.size();
-	}
-	
-	
-	word_frequency::word_frequency(std::istream& ss) {
-		std::string word;
-		while (ss >> word) {
-			std::transform(word.begin(), word.end(), word.begin(), ::tolower);
-			if (!word.empty()) {
-				wordCounts[word]++;
+
+		word_frequency::word_frequency(std::istream & is)
+		{
+			std::string word;
+			while (is >> word)
+			{
+				word[0] = tolower(word[0]);
+				insert(word);
 			}
 		}
-	}
 
-	unsigned word_frequency::count() const {
-		return wordCounts.size();
-	}
 
-	unsigned word_frequency::frequency(const std::string& word) const {
-		auto it = wordCounts.find(word);
-		return (it != wordCounts.end()) ? it->second : 0;
-	}
+		void word_frequency::insert(const std::string & s)
+		{
+			++m[s];
+		}
 
+
+		unsigned word_frequency::count() const
+		{
+			return m.size();
+		}
+
+		unsigned word_frequency::frequency(std::string s) const
+		{
+			auto it = m.find(s);
+			return it != m.end() ? it->second : 0;
+		}
 }
