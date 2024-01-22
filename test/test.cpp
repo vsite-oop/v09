@@ -3,6 +3,8 @@
 
 #include <sstream>
 #include <algorithm> // is_sorted
+#include <vector>
+#include <list>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std::string_literals;
@@ -39,7 +41,7 @@ namespace all_tests
 			Assert::AreEqual(2, v[1]);
 			Assert::AreEqual(4, v[2]);
 		}
-
+	
 		TEST_METHOD(vector_input_element)
 		{
 			std::vector<std::string> v{ "a", "b", "d" };
