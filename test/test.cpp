@@ -3,6 +3,8 @@
 
 #include <sstream>
 #include <algorithm> // is_sorted
+#include <vector>
+#include <list>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std::string_literals;
@@ -51,9 +53,9 @@ namespace all_tests
 
 		TEST_METHOD(list_nth_element_test)
 		{
-			std::list<int> c{ 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-			Assert::AreEqual(4, list_nth_element(c, 4));
-			Assert::AreEqual(8, list_nth_element(c, 8));
+			std::list<int> c{8, 7, 6, 5, 4, 3, 2, 1, 0};
+			Assert::AreEqual(5, list_nth_element(c, 3));
+			Assert::AreEqual(0, list_nth_element(c, 8));
 		}
 
 		TEST_METHOD(list_sort_descending)
